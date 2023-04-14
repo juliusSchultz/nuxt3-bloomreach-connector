@@ -8,10 +8,15 @@
 <script>
 import { useConfiguration } from '~/composables/useConfiguration.js'
 import { useMapping } from '~/composables/useMapping.js'
+import { BrSdk } from '@bloomreach/vue3-sdk';
+import { useNuxtApp } from '#app';
 
 export default {
   name: 'App',
   setup(){
+    const nuxtApp = useNuxtApp()
+    nuxtApp.vueApp.use(BrSdk)
+
     const configuration = useConfiguration()
     const { mapping } = useMapping()
 
